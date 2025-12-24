@@ -10,6 +10,7 @@ import { useMotionValueEvent, useScroll } from "motion/react";
 import { useRef } from "react";
 import { AboutSection } from "@/components/ui/AboutSection";
 import { Sheet } from "@/components/ui/sheet";
+import { InfiniteSlider } from "../../components/motion-primitives/infinite-slider";
 
 const page = () => {
   const [scrollPosition, setScrollPosition] = React.useState(0);
@@ -45,12 +46,16 @@ const page = () => {
             </Button>
           </a>
 
-          <Button className="text-xl hover:cursor-pointer text-gray-300">
-            Skills
-          </Button>
-          <Button className=" text-xl hover:cursor-pointer text-gray-300">
-            My Projects
-          </Button>
+          <a href="#skills">
+            <Button className="text-xl hover:cursor-pointer text-gray-300">
+              Skills
+            </Button>
+          </a>
+          <a href="#contact">
+            <Button className=" text-xl hover:cursor-pointer text-gray-300">
+              Contact
+            </Button>
+          </a>
         </ul>
         <ul className="flex gap-9 p-3">
           <a href="https://github.com/Ts-Adiya" target="_blank">
@@ -62,7 +67,7 @@ const page = () => {
           <Facebook className="w-6 h-6 text-white hover:text-gray-300 cursor-pointer" />
         </ul>
       </header>
-      <div className="fixed top-0 w-full justify-content-center mix-blend-lighten">
+      <div className="fixed top-0 w-full justify-content-center mix-blend-lighten h-screen ">
         <video
           className="w-full -mt-[23.5%] pointer-events-none"
           src="/videos/blackhole.mp4"
@@ -115,9 +120,67 @@ const page = () => {
 
       <AboutSection scale={scale} />
 
-      <section className="relative flex flex-col items-center justify-center min-h-screen text-white font-semibold">
+      <section
+        className=" flex items-center justify-center min-h-screen w-full mx-auto"
+        id="skills"
+      >
+        <div className="flex items-center justify-center">
+          <InfiniteSlider gap={200}>
+            <Image
+              className=" 
+                "
+              src="/images/css-3.svg"
+              alt="Logo"
+              width={200}
+              height={200}
+            />
+            <Image
+              src="/images/html-1.svg"
+              alt="Logo"
+              width={200}
+              height={200}
+            />
+            <Image
+              className="bg-white rounded-full size-50 "
+              src="https://www.svgrepo.com/show/394174/github.svg"
+              alt="Logo"
+              width={200}
+              height={200}
+            />
+            <Image
+              className="bg-white rounded-full size-50
+                "
+              src="/images/next.svg"
+              alt="Logo"
+              width={200}
+              height={200}
+            />
+            <Image
+              className="
+                "
+              src="https://vite.dev/assets/react.Dn3lPOaa.svg"
+              alt="Logo"
+              width={200}
+              height={200}
+            />{" "}
+            <Image
+              className="
+                "
+              src="https://vite.dev/logo.svg"
+              alt="Logo"
+              width={200}
+              height={200}
+            />
+          </InfiniteSlider>
+        </div>
+      </section>
+
+      <section
+        className="flex flex-col items-center justify-center min-h-screen text-white font-semibold "
+        id="contact"
+      >
         <p className="text-blue-400 text-5xl font-semibold mb-10">Contact Me</p>
-        <section className="relative flex grid-cols-1  md:grid-cols-2 items-center justify-center text-white gap-30 px-20 py-10">
+        <div className="grid lg:grid-cols-2 md:grid-cols-1 gap-10 px-20">
           <div className="flex flex-col h-150 w-100 gap-5 justify-center text-white">
             <div
               className=" mix-blend-lighten
@@ -157,7 +220,7 @@ const page = () => {
               Send Message
             </Button>
           </div>
-        </section>
+        </div>
       </section>
     </div>
   );
